@@ -6,6 +6,9 @@ Component({
     name: {
       type: String,
     },
+    draw: {
+      type: String,
+    },
     size: {
       type: Number,
       value: 100,
@@ -24,10 +27,6 @@ Component({
     },
   },
 
-  data: {
-    bg: 'bg',
-    draw: 'draw',
-  },
   methods: {
     setCircle: function () {
       const {
@@ -35,7 +34,7 @@ Component({
         lineWidth
       } = this.properties
       let r = size / 2;
-      let ctx = wx.createCanvasContext(this.data.bg, this);
+      let ctx = wx.createCanvasContext(this.properties.name, this);
       ctx.setLineWidth(lineWidth);
       ctx.setStrokeStyle(this.properties.backColor);
       ctx.setLineCap('round')
@@ -45,7 +44,6 @@ Component({
       ctx.draw();
       return this;
     },
-
     drawCircle: function (percentage) {
       const {
         size,
@@ -54,7 +52,8 @@ Component({
       let r = size / 2;
       let step = percentage * 2;
       // 使用 wx.createContext 获取绘图上下文 context  绘制彩色进度条圆环
-      let context = wx.createCanvasContext(this.properties.name, this);
+      let context = wx.createCanvasContext(this.properties.draw, this);
+      
       context.setLineWidth(lineWidth);
       context.setStrokeStyle(this.properties.lineColor);
       context.setLineCap('round');
@@ -63,10 +62,10 @@ Component({
       context.stroke(); //对当前路径进行描边
       context.draw();
     },
-
     run: function (percentage = 1, time = 1000, interval = 10) {
       let unit = percentage / (time / interval);
-      let tempPercent = 0;this.countTimer = setInterval(() => {
+      let tempPercent = 0;
+      this.countTimer = setInterval(() => {
         if (tempPercent < percentage) {
           // 绘制彩色圆环进度条
           this.drawCircle(tempPercent)
@@ -75,17 +74,14 @@ Component({
           clearInterval(this.countTimer);
         }
       }, interval)
+    },
+    longPress:function(event){
     }
   },
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  ready: function () {
-    console.log(this.properties.name);
-    this.setData({
-      // bg: this.properties.name+'-bg',
-      draw: 'draw',
-    }, () => {
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
       this.setCircle();
-    });
-  }
+    },
+  },
 })

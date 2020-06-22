@@ -1,29 +1,44 @@
 <!--index.wxml-->
 
 <view class="container">
-	<!-- 今日能量消耗 -->
+	<!-- 今日能量 -->
 	<view class="energy">
 		<view class="energy-number">327</view>
 		<view class="energy-unit">千卡</view>
 	</view>
 
+	<!-- 摄入消耗圆环 -->
 	<view class="today">
 		<view class="today-card">
 			<view>
-				<view class="today-card-title">消耗</view>
+				<view class="today-card-title">摄入量</view>
 				<view class="today-card-number">499</view>
 				<view class="today-card-unit">千卡</view>
 			</view>
-			<circle id="circle" name="circle" size="{{60}}" lineWidth="{{6}}" lineColor="#0081ff" />
+			<circle id="circle" name="circle-bg" draw="circle-draw" size="{{60}}" lineWidth="{{6}}" lineColor="#0081ff" />
 		</view>
 
 		<view class="today-card">
 			<view>
-				<view class="today-card-title">消耗</view>
+				<view class="today-card-title">消耗量</view>
 				<view class="today-card-number">499</view>
 				<view class="today-card-unit">千卡</view>
 			</view>
-			<circle id="circle2" name="circle2" size="{{60}}" lineWidth="{{6}}" />
+			<circle id="circle2" name="circle2-bg" draw="circle2-draw" size="{{60}}" lineWidth="{{6}}" lineColor="#1cbbb4" />
+		</view>
+	</view>
+
+	<view class="today">
+		<view class="today-card intake">
+			<view class="intake-title">
+				每日目标清单
+			</view>
+			<view class="intake-item">
+			as
+			</view>
+			<view class="intake-item">
+			as
+			</view>
 		</view>
 	</view>
 	<!-- 用户 openid -->

@@ -139,9 +139,7 @@ Page({
 
   onReady: function () {
     // 获得circle组件
-    this.circle = this.selectComponent("#circle");
-    this.circle.run(0.78)
-    // this.circle2 = this.selectComponent("#circle2");
-    // this.circle.run(0.3)
+    this.selectComponent("#circle").run(0.78);
+    this.selectComponent("#circle2").run(0.48);
   },
 })
