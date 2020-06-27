@@ -9,8 +9,16 @@ Page({
     takeSession: false,
     requestResult: '',
 
-    count: 0, //计数器，初始值为0
-    maxCount: 60, // 绘制一个圆环所需的步骤 
+    intakeData: 0,
+    consumeData:0,
+    intakeColor: {
+      '0%': '#ffd01e',
+      '100%': '#ee0a24',
+    },
+    consumeColor: {
+      '0%': '#7bc8a4',
+      '100%': '#4cc3d9',
+    },
   },
 
   onLoad: function () {
@@ -37,6 +45,20 @@ Page({
         }
       }
     })
+    setTimeout(() => {
+      this.setData({
+        intakeData: 40,
+        consumeData:80
+      })
+    }, 1000);
+
+    this.setData({
+      slideButtons: [{
+        text: '完成',
+      },{
+        text: '删除',
+      }],
+  });
   },
 
   onGetUserInfo: function (e) {
@@ -121,25 +143,7 @@ Page({
   },
 
 
-  countInterval: function () {
-    // 设置倒计时 定时器 假设每隔100毫秒 count递增+1，当 count递增到两倍maxCount的时候刚好是一个圆环（ step 从0到2为一周），然后改变txt值并且清除定时器
-    this.countTimer = setInterval(() => {
-      if (this.data.count <= 2 * this.data.maxCount) {
-        // 绘制彩色圆环进度条
-        this.circle1.drawCircle(this.data.count / this.data.maxCount)
-        this.data.count++;
-      } else {
-        this.setData({
-          txt: "匹配成功"
-        });
-        clearInterval(this.countTimer);
-      }
-    }, 10)
-  },
-
   onReady: function () {
-    // 获得circle组件
-    this.selectComponent("#circle").run(0.78);
-    this.selectComponent("#circle2").run(0.48);
+
   },
 })

@@ -12,10 +12,10 @@
 		<view class="today-card">
 			<view>
 				<view class="today-card-title">摄入量</view>
-				<view class="today-card-number">499</view>
+				<view class="today-card-number">{{intakeData}}</view>
 				<view class="today-card-unit">千卡</view>
 			</view>
-			<circle id="circle" name="circle-bg" draw="circle-draw" size="{{60}}" lineWidth="{{6}}" lineColor="#0081ff" />
+			<van-circle value="{{ intakeData }}" color="{{ intakeColor }}" size="{{50}}" layer-color="#d5d5d5" speed="{{50}}" stroke-width="{{6}}" />
 		</view>
 
 		<view class="today-card">
@@ -24,7 +24,7 @@
 				<view class="today-card-number">499</view>
 				<view class="today-card-unit">千卡</view>
 			</view>
-			<circle id="circle2" name="circle2-bg" draw="circle2-draw" size="{{60}}" lineWidth="{{6}}" lineColor="#1cbbb4" />
+			<van-circle value="{{ consumeData }}" color="{{ consumeColor }}" size="{{50}}" layer-color="#d5d5d5" speed="{{50}}" stroke-width="{{6}}" />
 		</view>
 	</view>
 
@@ -33,12 +33,10 @@
 			<view class="intake-title">
 				每日目标清单
 			</view>
-			<view class="intake-item">
-			as
-			</view>
-			<view class="intake-item">
-			as
-			</view>
+			<item title="haha" number="666" img="../../images/item/apple.svg" />
+			<item title="haha" number="666" img="../../images/item/apple.svg" />
+			<item title="haha" number="666" img="../../images/item/apple.svg" disable />
+
 		</view>
 	</view>
 	<!-- 用户 openid -->

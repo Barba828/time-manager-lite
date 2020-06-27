@@ -1,7 +1,38 @@
-/* circle.wxss */
-.circle_box,.circle_draw{
-  position: relative; 
+Page {
+  --Height: 10vw;
+ }
+.intake-slide {
+  margin-top: 2vw;
+  width: 100%;
 }
-.circle_bg{
-  position: absolute;   
+.intake-item {
+  width: 70vw;
+  height: var(--Height);
+  color: #fff;
+  border-radius: 4vw;
+  background-color: #1cbbb4;
+}
+.intake-item-disabled {
+  background-color: #d6d6d6;
+}
+.intake-cell {
+  height: 100%;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 2vw !important;
+  padding-right: 4vw !important;
+}
+.intake-cell-icon{
+  width: 5vw;
+  height: 5vw;
+  margin:2vw;
+  vertical-align: middle;
+}
+.weui-slideview__btn{
+  margin-left: 1vw !important;
+  height: var(--Height) !important;
+  width: 10vw !important;
+  min-width:10vw !important;
+  border-radius: 4vw !important;
+  background-color: #1ca8bb !important;
 }

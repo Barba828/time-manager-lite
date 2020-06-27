@@ -1,6 +1,10 @@
 {
   "usingComponents": {
     "circle":"/components/circle/circle",
-    "item":"/components/item/item"
+    "item":"/components/item/item",
+    "van-circle": "@vant/weapp/circle/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-slideview": "/miniprogram_npm/weui-miniprogram/slideview/slideview"
   }
 }
